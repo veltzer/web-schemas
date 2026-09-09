@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "ajv-cli": "latest",
-    "ajv-formats": "latest",
-    "jshint": "latest"
+    "ajv-formats": "latest"
   }
 }
