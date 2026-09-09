@@ -5,16 +5,13 @@
 [analyzer.python]
 
 [processor.ruff]
-src_dirs = ["scripts", "config"]
+src_dirs = ["scripts"]
 
 [processor.pylint]
-src_dirs = ["scripts", "config"]
+src_dirs = ["scripts"]
 
 [processor.mypy]
-src_dirs = ["scripts", "config"]
-
-[processor.luacheck]
-src_dirs = ["config"]
+src_dirs = ["scripts"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
