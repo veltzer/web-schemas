@@ -13,6 +13,7 @@ dev = [
     "pylint",
     "pytest",
     "ruff",
+    "yamllint",
 ]
 
 [tool.uv]
