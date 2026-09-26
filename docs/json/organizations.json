@@ -1,0 +1,238 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "organizations.json",
+	"description": "Organizations I taught at, consulted for, was certified by, or consumed media from, with their logos, current state and map coordinates",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/$schema"
+		},
+		"items": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "Stable numeric id, from the original myworld database; never reused",
+						"type": "integer",
+						"minimum": 1
+					},
+					"name": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/name"
+					},
+					"slug": {
+						"description": "URL-safe name, also the basename of the logo files",
+						"type": "string",
+						"pattern": "^[a-z0-9-]+$"
+					},
+					"remark": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/remark"
+					},
+					"from_date": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_ymd"
+					},
+					"functions": {
+						"description": "What I did with the organization; empty for media publishers I only consumed",
+						"type": "array",
+						"uniqueItems": true,
+						"items": {
+							"type": "string",
+							"enum": ["teaching", "consulting", "certification"]
+						}
+					},
+					"logo": {
+						"description": "The vector logo, relative to data/yaml/",
+						"type": "string",
+						"pattern": "^logos/[a-z0-9-]+\\.svg$"
+					},
+					"logo_original": {
+						"description": "The bitmap the logo was traced from or replaced, relative to data/yaml/",
+						"type": "string",
+						"pattern": "^raw/logos/[a-z0-9-]+\\.(png|jpg|jpeg|gif|webp)$"
+					},
+					"logo_kind": {
+						"description": "Whether the vector logo is genuine or a trace of the bitmap",
+						"type": "string",
+						"enum": [
+							"official vector",
+							"traced from original bitmap (no vector logo found online)"
+						]
+					},
+					"logo_source": {
+						"description": "Where the genuine vector logo was fetched from (a URL, possibly annotated)",
+						"type": "string",
+						"pattern": "^https?://"
+					},
+					"logo_license": {
+						"description": "The license or basis for using the logo",
+						"type": "string"
+					},
+					"logo_note": {
+						"description": "Which version of the logo this is and any caveat",
+						"type": "string"
+					},
+					"old_url": {
+						"description": "The organization's URL as recorded in the original database",
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/url"
+					},
+					"status": {
+						"description": "What became of the organization",
+						"type": "string",
+						"enum": ["active", "acquired", "merged", "renamed", "defunct", "unknown"]
+					},
+					"what_happened": {
+						"description": "The story behind the status: who bought it, when it closed, what it is called now",
+						"type": "string"
+					},
+					"website": {
+						"description": "The current website (of the successor, if acquired or renamed)",
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/url"
+					},
+					"location": {
+						"description": "Current headquarters, free text: city, region, country, with annotations in parentheses",
+						"type": "string"
+					},
+					"location_geo": {
+						"$ref": "#/$defs/place_geo"
+					},
+					"israel_office": {
+						"description": "The Israeli site, free text; for an Israeli company the same as its headquarters",
+						"type": "string"
+					},
+					"israel_office_geo": {
+						"$ref": "#/$defs/place_geo"
+					},
+					"former_website": {
+						"description": "The website before the acquisition or rename (a URL, possibly annotated), or 'unknown' with a note",
+						"type": "string",
+						"pattern": "^(https?://|unknown)"
+					},
+					"former_location": {
+						"description": "Headquarters before the acquisition, move or closure, free text",
+						"type": "string"
+					},
+					"former_location_geo": {
+						"$ref": "#/$defs/place_geo"
+					},
+					"geo": {
+						"description": "The one point a map shows for the organization, chosen by hand (scripts/organizations_pick_geo.py) from the *_geo blocks",
+						"type": "object",
+						"properties": {
+							"from": {
+								"description": "Which place field the point was taken from",
+								"type": "string",
+								"enum": ["location", "israel_office", "former_location"]
+							},
+							"place": {
+								"$ref": "#/$defs/place"
+							},
+							"lat": {
+								"$ref": "#/$defs/lat"
+							},
+							"lon": {
+								"$ref": "#/$defs/lon"
+							}
+						},
+						"required": ["from", "place", "lat", "lon"],
+						"propertyOrdering": ["from", "place", "lat", "lon"],
+						"additionalProperties": false
+					},
+					"sources": {
+						"description": "Where the status, location and website were verified",
+						"type": "array",
+						"minItems": 1,
+						"items": {
+							"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/url"
+						}
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"slug",
+					"functions",
+					"logo",
+					"logo_original",
+					"logo_kind",
+					"old_url",
+					"status",
+					"geo",
+					"sources"
+				],
+				"dependentRequired": {
+					"location_geo": ["location"],
+					"israel_office_geo": ["israel_office"],
+					"former_location_geo": ["former_location"],
+					"logo_source": ["logo_license", "logo_note"]
+				},
+				"propertyOrdering": [
+					"id",
+					"name",
+					"slug",
+					"remark",
+					"from_date",
+					"functions",
+					"logo",
+					"logo_original",
+					"logo_kind",
+					"logo_source",
+					"logo_license",
+					"logo_note",
+					"old_url",
+					"status",
+					"what_happened",
+					"website",
+					"location",
+					"location_geo",
+					"israel_office",
+					"israel_office_geo",
+					"former_website",
+					"former_location",
+					"former_location_geo",
+					"geo",
+					"sources"
+				],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": ["items"],
+	"additionalProperties": false,
+	"$defs": {
+		"place": {
+			"description": "The place the coordinates were resolved for: the free text reduced to one city, as 'City, Country'",
+			"type": "string",
+			"minLength": 1
+		},
+		"lat": {
+			"description": "WGS84 latitude in decimal degrees",
+			"type": "number",
+			"minimum": -90,
+			"maximum": 90
+		},
+		"lon": {
+			"description": "WGS84 longitude in decimal degrees",
+			"type": "number",
+			"minimum": -180,
+			"maximum": 180
+		},
+		"place_geo": {
+			"description": "Coordinates of the free-text place field this block follows, written by scripts/organizations_geocode.py from Nominatim",
+			"type": "object",
+			"properties": {
+				"place": {
+					"$ref": "#/$defs/place"
+				},
+				"lat": {
+					"$ref": "#/$defs/lat"
+				},
+				"lon": {
+					"$ref": "#/$defs/lon"
+				}
+			},
+			"required": ["place", "lat", "lon"],
+			"propertyOrdering": ["place", "lat", "lon"],
+			"additionalProperties": false
+		}
+	}
+}
