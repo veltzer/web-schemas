@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "ajv-cli": "latest",
-    "ajv-formats": "latest"
-  }
-}

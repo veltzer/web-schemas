@@ -20,7 +20,6 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 [processor.ijsonlint]
 src_dirs = ["docs/json"]
-src_files = [".ajv-config.json", "package.json"]
 
 [processor.htmlhint]
 src_dirs = ["docs"]
