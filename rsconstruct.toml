@@ -21,7 +21,7 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 [processor.ijsonlint]
 src_dirs = ["docs/json"]
 
-[processor.htmlhint]
+[processor.tidy]
 src_dirs = ["docs"]
 
 [processor.generator.jsonschema]
