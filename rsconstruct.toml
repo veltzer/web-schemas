@@ -6,25 +6,25 @@ reject_dot_src_dirs = true
 
 [analyzer.python]
 
-[processor.ruff]
+[processor.checker.ruff]
 src_dirs = ["scripts"]
 
 
-[processor.mypy]
+[processor.checker.mypy]
 src_dirs = ["scripts"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
-[processor.taplo]
+[processor.checker.taplo]
 src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
-[processor.ijsonlint]
+[processor.checker.ijsonlint]
 src_dirs = ["docs/json"]
 
-[processor.tidy]
+[processor.checker.tidy]
 src_dirs = ["docs"]
 
-[processor.generator.jsonschema]
+[processor.generator.generic.jsonschema]
 command = "scripts/check_json_schema.py"
 src_dirs = ["docs/json"]
 src_extensions = [".json"]
@@ -33,20 +33,20 @@ output_extension = "stamp"
 batch = false
 
 # lint the GitHub Actions workflow files with actionlint
-[processor.actionlint]
+[processor.checker.actionlint]
 src_dirs = [".github/workflows"]
 
 # ─── markdown ────────────────────────────────────────────────────────────────
 
-[processor.rumdl]
+[processor.checker.rumdl]
 src_files = ["README.md"]
 
 # ─── yaml ────────────────────────────────────────────────────────────────────
 
-[processor.yamllint]
+[processor.checker.yamllint]
 src_dirs = ["docs/yaml", "support"]
 
 # ─── xml / svg ───────────────────────────────────────────────────────────────
 
-[processor.xmllint]
+[processor.checker.xmllint]
 src_dirs = ["docs"]
