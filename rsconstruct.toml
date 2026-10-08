@@ -43,7 +43,7 @@ src_files = ["README.md"]
 
 # ─── yaml ────────────────────────────────────────────────────────────────────
 
-[processor.checker.yamllint]
+[processor.checker.iyamllint]
 src_dirs = ["docs/yaml", "support"]
 
 # ─── xml / svg ───────────────────────────────────────────────────────────────
