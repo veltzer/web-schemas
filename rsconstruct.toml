@@ -48,5 +48,5 @@ src_dirs = ["docs/yaml", "support"]
 
 # ─── xml / svg ───────────────────────────────────────────────────────────────
 
-[processor.checker.xmllint]
+[processor.checker.ixmllint]
 src_dirs = ["docs"]
