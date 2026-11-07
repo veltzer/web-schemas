@@ -51,11 +51,12 @@
 						"pattern": "^raw/logos/[a-z0-9-]+\\.(png|jpg|jpeg|gif|webp)$"
 					},
 					"logo_kind": {
-						"description": "Whether the vector logo is genuine or a trace of the bitmap",
+						"description": "Whether the vector logo is genuine, a trace of the bitmap, or a wordmark set when no logo image survives",
 						"type": "string",
 						"enum": [
 							"official vector",
-							"traced from original bitmap (no vector logo found online)"
+							"traced from original bitmap (no vector logo found online)",
+							"wordmark set from the company's own styled name (no logo image survives)"
 						]
 					},
 					"logo_source": {
