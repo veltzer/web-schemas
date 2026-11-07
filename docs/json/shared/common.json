@@ -44,7 +44,7 @@
 			"type": "string"
 		},
 		"wikidata_id": {
-			"description": "The Wikidata item of the work (Q followed by digits); its IMDb id (P345) must match the entry's imdb_id",
+			"description": "The Wikidata item of the work (Q followed by digits); its IMDb id (P345) must match the entry's imdb_id. Every work has one: create the item on Wikidata when it is missing",
 			"type": "string",
 			"pattern": "^Q[1-9][0-9]*$"
 		},

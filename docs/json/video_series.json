@@ -56,6 +56,7 @@
 				"required": [
 					"name",
 					"imdb_id",
+					"wikidata_id",
 					"rotten_tomatoes_id",
 					"location",
 					"device",
