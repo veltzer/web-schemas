@@ -49,8 +49,8 @@
 			"pattern": "^Q[1-9][0-9]*$"
 		},
 		"rotten_tomatoes_id": {
-			"description": "The Rotten Tomatoes path of the work (m/<slug> for a film, tv/<slug> for a series), as recorded on its Wikidata item (P1258)",
-			"type": "string",
+			"description": "The Rotten Tomatoes path of the work (m/<slug> for a film, tv/<slug> for a series), as recorded on its Wikidata item (P1258) or verified by hand; null when Rotten Tomatoes has no page for the work",
+			"type": ["string", "null"],
 			"pattern": "^(m|tv)/[^/\\s]+(/[^/\\s]+)*$"
 		},
 		"id": {

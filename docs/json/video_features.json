@@ -49,6 +49,7 @@
 				"required": [
 					"name",
 					"imdb_id",
+					"rotten_tomatoes_id",
 					"location",
 					"device",
 					"date_utcz",
