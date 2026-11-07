@@ -43,6 +43,11 @@
 			"description": "The imdb id of the movie",
 			"type": "string"
 		},
+		"wikidata_id": {
+			"description": "The Wikidata item of the work (Q followed by digits); its IMDb id (P345) must match the entry's imdb_id",
+			"type": "string",
+			"pattern": "^Q[1-9][0-9]*$"
+		},
 		"id": {
 			"description": "id of the video",
 			"type": "string"
