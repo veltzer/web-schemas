@@ -13,7 +13,7 @@
 				"type": "object",
 				"properties": {
 					"id": {
-						"description": "Stable numeric id, from the original myworld database; never reused",
+						"description": "Stable numeric id, from the original myworld database (organizations added later continue the sequence); never reused",
 						"type": "integer",
 						"minimum": 1
 					},
@@ -46,7 +46,7 @@
 						"pattern": "^logos/[a-z0-9-]+\\.svg$"
 					},
 					"logo_original": {
-						"description": "The bitmap the logo was traced from or replaced, relative to data/yaml/",
+						"description": "The bitmap the logo was traced from or replaced, relative to data/yaml/; absent when the logo was a vector from the start",
 						"type": "string",
 						"pattern": "^raw/logos/[a-z0-9-]+\\.(png|jpg|jpeg|gif|webp)$"
 					},
@@ -72,7 +72,7 @@
 						"type": "string"
 					},
 					"old_url": {
-						"description": "The organization's URL as recorded in the original database",
+						"description": "The organization's URL as recorded in the original database; absent for organizations added after it",
 						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/url"
 					},
 					"status": {
@@ -152,9 +152,7 @@
 					"slug",
 					"functions",
 					"logo",
-					"logo_original",
 					"logo_kind",
-					"old_url",
 					"status",
 					"geo",
 					"sources"
