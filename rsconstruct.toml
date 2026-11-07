@@ -31,6 +31,8 @@ src_extensions = [".json"]
 output_dir = "out/check"
 output_extension = "stamp"
 batch = false
+# check-jsonschema downloads the metaschema each file's "$schema" names.
+sandbox_network = true
 
 # lint the GitHub Actions workflow files with actionlint
 [processor.checker.iactionlint]
