@@ -115,6 +115,16 @@
 					"former_location_geo": {
 						"$ref": "#/$defs/place_geo"
 					},
+					"address": {
+						"description": "Street address of the office the geo point stands for (the last known one for an organization that is gone), in English, e.g. \"29 Homa uMigdal St., Tel Aviv, Israel\"",
+						"type": "string",
+						"minLength": 1
+					},
+					"address_source": {
+						"description": "Where the address was seen",
+						"type": "string",
+						"format": "uri"
+					},
 					"geo": {
 						"description": "The one point a map shows for the organization, chosen by hand (scripts/organizations_pick_geo.py) from the *_geo blocks",
 						"type": "object",
@@ -188,6 +198,8 @@
 					"former_website",
 					"former_location",
 					"former_location_geo",
+					"address",
+					"address_source",
 					"geo",
 					"sources"
 				],
