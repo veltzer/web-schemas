@@ -21,6 +21,9 @@
 					"wikidata_id": {
 						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/wikidata_id"
 					},
+					"rotten_tomatoes_id": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/rotten_tomatoes_id"
+					},
 					"location": {
 						"$ref": "https://veltzer.github.io/web-schemas/json/shared/location.json#/$defs/location"
 					},
@@ -58,6 +61,7 @@
 					"name",
 					"imdb_id",
 					"wikidata_id",
+					"rotten_tomatoes_id",
 					"date_utcz",
 					"date_timezone",
 					"location",
