@@ -8,7 +8,8 @@
 			"type": "string",
 			"enum": [
 				"Schema",
-				"Google"
+				"Google",
+				"MAFAT"
 			]
 		},
 		"companies": {
