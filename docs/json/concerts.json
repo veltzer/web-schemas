@@ -86,7 +86,7 @@
 						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/remark"
 					},
 					"image_source": {
-						"description": "The description page of the card's image (static/images/concert-<internal_id>.jpg)",
+						"description": "The description page of the card's image (see image)",
 						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/url"
 					},
 					"image_license": {
@@ -97,16 +97,16 @@
 						"description": "Who made the image, for the attribution its license asks for",
 						"type": "string"
 					},
-					"internal_id": {
-						"description": "Internal unique ID for each show; names its image file",
-						"type": "integer",
-						"minimum": 1
+					"image": {
+						"description": "The card's image, static/images/<image> in veltzer.github.io: the performer, or the venue or an instrument; shows with the same subject share one file",
+						"type": "string",
+						"pattern": "^concert-[a-z0-9-]+\\.jpg$"
 					}
 				},
 				"required": [
 					"name",
 					"with",
-					"internal_id"
+					"image"
 				],
 				"dependentRequired": {
 					"date_utcz": ["date_timezone"],
@@ -137,7 +137,7 @@
 					"image_source",
 					"image_license",
 					"image_author",
-					"internal_id"
+					"image"
 				],
 				"additionalProperties": false
 			}
