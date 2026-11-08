@@ -1,0 +1,125 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "concerts.json",
+	"description": "Concerts and live shows that I saw",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/$schema"
+		},
+		"items": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/name"
+					},
+					"performers": {
+						"description": "Who performed: artists, bands or ensembles, as free text",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"event": {
+						"description": "The occasion, festival or series the show was part of",
+						"type": "string"
+					},
+					"genre": {
+						"description": "The kind of show",
+						"type": "string",
+						"enum": [
+							"rock",
+							"jazz",
+							"blues",
+							"classical",
+							"ethnic",
+							"ethnojazz",
+							"rnb",
+							"fusion",
+							"prog",
+							"dance",
+							"rehearsal",
+							"variety"
+						]
+					},
+					"date_utcz": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_utcz"
+					},
+					"date_ymd": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_ymd"
+					},
+					"date_my": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_my"
+					},
+					"date_y": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_y"
+					},
+					"date_timezone": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_timezone"
+					},
+					"venue": {
+						"description": "Where the show took place",
+						"type": "string"
+					},
+					"city": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/city.json#/$defs/city"
+					},
+					"country": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/country.json#/$defs/country"
+					},
+					"broadcast": {
+						"description": "Seen on television rather than in person",
+						"type": "boolean"
+					},
+					"with": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/person.json#/$defs/with"
+					},
+					"tickets": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/tickets"
+					},
+					"review": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/review"
+					},
+					"remark": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/remark"
+					}
+				},
+				"required": [
+					"name",
+					"with"
+				],
+				"dependentRequired": {
+					"date_utcz": ["date_timezone"],
+					"date_ymd": ["date_timezone"],
+					"date_my": ["date_timezone"],
+					"date_y": ["date_timezone"],
+					"city": ["country"]
+				},
+				"propertyOrdering": [
+					"name",
+					"performers",
+					"event",
+					"genre",
+					"date_utcz",
+					"date_ymd",
+					"date_my",
+					"date_y",
+					"date_timezone",
+					"venue",
+					"city",
+					"country",
+					"broadcast",
+					"with",
+					"tickets",
+					"review",
+					"remark"
+				],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": ["items"],
+	"additionalProperties": false
+}
