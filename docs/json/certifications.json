@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "certifications.json",
+	"description": "Certifications I hold: each names the organization (an id in organizations.yaml) that issued it",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/$schema"
+		},
+		"items": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "Stable numeric id; never reused",
+						"type": "integer",
+						"minimum": 1
+					},
+					"name": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/common.json#/$defs/name"
+					},
+					"organization": {
+						"description": "The id, in organizations.yaml, of the organization that issued the certification",
+						"type": "integer",
+						"minimum": 1
+					},
+					"kind": {
+						"description": "instructor: certified to teach the vendor's courses; professional: a certification of my own skills",
+						"type": "string",
+						"enum": ["instructor", "professional"]
+					},
+					"date": {
+						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_ymd"
+					},
+					"remark": {
+						"description": "A note on the certification",
+						"type": "string"
+					}
+				},
+				"required": ["id", "name", "organization", "kind"],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": ["items"],
+	"additionalProperties": false
+}
