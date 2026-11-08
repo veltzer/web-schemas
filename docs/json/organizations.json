@@ -45,11 +45,6 @@
 						"type": "string",
 						"pattern": "^logos/[a-z0-9-]+\\.svg$"
 					},
-					"logo_original": {
-						"description": "The bitmap the logo was traced from or replaced, relative to data/yaml/; absent when the logo was a vector from the start",
-						"type": "string",
-						"pattern": "^raw/logos/[a-z0-9-]+\\.(png|jpg|jpeg|gif|webp)$"
-					},
 					"logo_kind": {
 						"description": "Whether the vector logo is genuine, a trace of the bitmap, or a wordmark set when no logo image survives",
 						"type": "string",
@@ -182,7 +177,6 @@
 					"from_date",
 					"functions",
 					"logo",
-					"logo_original",
 					"logo_kind",
 					"logo_source",
 					"logo_license",
