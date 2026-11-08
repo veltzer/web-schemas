@@ -32,12 +32,12 @@
 						"$ref": "https://veltzer.github.io/web-schemas/json/shared/dates.json#/$defs/date_ymd"
 					},
 					"functions": {
-						"description": "What I did with the organization. teaching: I taught at it (a client); training-provider: a training company I taught courses for; publisher: a publisher of media I consumed (audiobooks, courses, radio)",
+						"description": "What I did with the organization. teaching: I taught at it (a client); training-provider: a training company I taught courses for; publisher: a publisher of media I consumed (audiobooks, courses, radio); education: a school or university I studied at",
 						"type": "array",
 						"uniqueItems": true,
 						"items": {
 							"type": "string",
-							"enum": ["teaching", "training-provider", "consulting", "certification", "publisher"]
+							"enum": ["teaching", "training-provider", "consulting", "certification", "publisher", "education"]
 						}
 					},
 					"logo": {
