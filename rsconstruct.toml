@@ -56,4 +56,6 @@ src_dirs = ["docs/yaml", "support"]
 # ─── xml / svg ───────────────────────────────────────────────────────────────
 
 [processor.checker.ixmllint]
+# warnings fail too, not only fatal errors
+strict = true
 src_dirs = ["docs"]
