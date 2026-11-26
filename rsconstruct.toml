@@ -16,7 +16,7 @@ src_dirs = ["scripts"]
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
 [processor.checker.taplo]
-src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
+src_files = [".ruff.toml", ".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 [processor.checker.ijsonlint]
 src_dirs = ["docs/json"]
