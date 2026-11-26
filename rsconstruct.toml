@@ -68,3 +68,8 @@ src_dirs = ["docs"]
 # lint the Lua configuration with luacheck (policy: .luacheckrc)
 [processor.checker.iluacheck]
 src_dirs = ["config"]
+
+# every lint suppression names a rule and says why (see the fleet's CLAUDE.md)
+[processor.checker.suppressions]
+src_dirs = [".github", "config", "docs/yaml", "scripts", "support"]
+src_files = [".yamllint.yaml", "README.md"]
