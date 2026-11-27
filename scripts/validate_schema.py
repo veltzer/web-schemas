@@ -11,7 +11,7 @@ import json
 import sys
 
 
-def validate_schema_object(schema_part, path="root"):
+def validate_schema_object(schema_part: object, path: str = "root") -> list[str]:
     """
     Recursively traverses a schema and validates the 'propertyOrdering'
     for every object definition found.
@@ -53,7 +53,7 @@ def validate_schema_object(schema_part, path="root"):
 
     return errors
 
-def process_schema_file(file_path):
+def process_schema_file(file_path: str) -> bool:
     """
     Loads a JSON schema file and runs the validation on it.
     """
@@ -78,7 +78,7 @@ def process_schema_file(file_path):
     print("Validation successful: 'propertyOrdering' matches 'properties' throughout the schema.")
     return True
 
-def main():
+def main() -> None:
     """
     Main function to handle command-line arguments.
     """

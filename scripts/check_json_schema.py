@@ -12,7 +12,7 @@ import subprocess
 import sys
 
 
-def main():
+def main() -> None:
     """ main entry point """
     source, stamp = sys.argv[1], sys.argv[2]
     with open(source, encoding="utf-8") as handle:
